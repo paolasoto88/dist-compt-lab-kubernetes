@@ -116,7 +116,7 @@ $ curl http://localhost:8001/api/v1/namespaces/default/pods/<pod_name>/proxy/
  1. Create a secret which stores your docker credentials. 
  
  ```
- $ kubectl create secret generic regcred \
+ $ kubectl create secret generic <secret-name> \
     --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
     --type=kubernetes.io/dockerconfigjson
  ```
