@@ -71,11 +71,7 @@ Taken from [here](https://kubernetes.io/docs/concepts/services-networking/connec
 
 1. Get podname
 ```
-# manally
 $ kubectl get pods  # get podname
-
-# more elegant
-$ export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 ```
 2. Activate kube-proxy to be able to communicate with the outside-world. In another terminal run:
 ```
@@ -83,7 +79,7 @@ $ kubectl proxy
 ```
 3. Back to the first terminal, type: 
 ```
-$ curl http://localhost:8001/api/v1/namespaces/default/pods/<POD_NAME>/proxy/
+$ curl http://localhost:8001/api/v1/namespaces/default/pods/<pod_name>/proxy/
 ```
 
  -> Proposed exercise, try to access the IP address especified in `kubectl describe pod <pod_name>`, or `localhost:8080`, `localhost:80`, what happens?
